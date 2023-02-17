@@ -1,60 +1,6 @@
 import React from 'react';
+import App from './components/App';
 import ReactDOM from 'react-dom/client';
-
-//Show name of the course
-const Header = (props) => (
-  <h1>{props.course}</h1>
-)
-//Show parts of the course
-const Content = (props) => {
-  return(
-    <div>
-      <Part part={props.parts[0].name} exercises={props.parts[0].exercises} />
-      <Part part={props.parts[1].name} exercises={props.parts[1].exercises} />
-      <Part part={props.parts[2].name} exercises={props.parts[2].exercises} />
-    </div>
-  )
-}
-
-//Show name and number of exercises per part of the course
-const Part = (props) => (
-  <p>
-    {props.part} {props.exercises}
-  </p>
-)
-
-//SHow the total of exercises of the course
-const Total = (props) => (
-  <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
-)
-
-const App = () => {
-  //Course object containing all of the data
-  const course = {
-    name:'Half Stack application development',
-    parts : [
-    {
-      name: 'Fundamentals of React',
-      exercises: 10
-    }
-    ,{
-      name: 'Using props to pass data',
-      exercises: 7
-    }
-    ,{
-      name: 'State of a component',
-      exercises: 14
-    }]
-  }
-  
-  return (
-   <div>
-  <Header course={course.name}/>
-  <Content parts={course.parts} />
-  <Total parts={course.parts} />
-   </div>
-   )
-  }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
